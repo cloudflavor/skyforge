@@ -1,0 +1,33 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install latest nightly
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        override: true
+        components: rustfmt, clippy
+        target: wasm32-wasip1
+    - name: Install wit-bindgen
+      run: cargo install wit-bindgen-cli
+    - name: Check WIT API
+      run: wit-bindgen rust --with plugin-api=api spec/wit/skyforge.v1.wit
+    - name: Run clippy
+      run: cargo clippy
+    - name: Build plugins
+      run: cargo build
