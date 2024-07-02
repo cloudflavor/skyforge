@@ -1,2 +1,3 @@
-# skyforge
-A registry of WASM plugins for infrastructure provisioning
+# Skyforge
+
+A registry of WASI plugins for infrastructure provisioning

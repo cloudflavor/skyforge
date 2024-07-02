@@ -1,5 +1,5 @@
 [package]
-name = "scaleway"
+name = "hetzner"
 version = "0.1.0"
 edition = "2021"
 authors = ["Victor Palade <victor@cloudflavor.io>"]
@@ -10,5 +10,4 @@ crate-type = ["cdylib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
+wit-bindgen = "0.27.0"
