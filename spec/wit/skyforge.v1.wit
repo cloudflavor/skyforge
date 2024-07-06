@@ -1,15 +1,19 @@
 package cloudflavor:skyforge@0.1.0;
 
-world skyforge-api {
-    export plugin-api: interface {
-        deserialize-config: func(config-str: string) -> result<config, error>;
-
-        record config{}
-
-        enum error {
-            invalid-format,
-            missing-field,
-            other,
-        }
+interface plugin-api {
+    record config {
+        name: string
     }
+
+    enum error {
+        invalid-format,
+        missing-field,
+        other,
+    }
+
+    deserialize-config: func(config-str: string) -> result<config, error>;
+}
+
+world skyforge-api {
+    export plugin-api;
 }

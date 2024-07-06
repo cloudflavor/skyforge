@@ -1,17 +1,19 @@
 use wit_bindgen::generate;
 
+pub mod resources;
+
 generate!({
     world: "skyforge-api",
-    path: "../../spec/wit"
+    path: "../../spec/wit",
 });
 
-use exports::plugin_api::{Config as PluginConfig, Error, Guest};
+use exports::cloudflavor::skyforge::plugin_api::{Config as PluginConfig, Error, Guest};
 
 struct Hetzner;
 
 impl Guest for Hetzner {
-    fn deserialize_config(_config: String) -> Result<PluginConfig, Error> {
-        Ok(PluginConfig {})
+    fn deserialize_config(config: String) -> Result<PluginConfig, Error> {
+        return Ok(PluginConfig { name: config });
     }
 }
 
