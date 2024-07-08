@@ -25,9 +25,8 @@ jobs:
         target: wasm32-wasip1
     - name: Install wit-bindgen
       run: cargo install wit-bindgen-cli
-    # NOTE: temporarily disabled because i can't understand what the mapping is going on.
-    # - name: Check WIT API
-    #   run: wit-bindgen rust --with plugin-api=api spec/wit/skyforge.v1.wit
+    - name: Check WIT API
+      run: scripts/check-wit.sh
     - name: Run clippy
       run: cargo clippy
     - name: Build plugins
