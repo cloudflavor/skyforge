@@ -4,7 +4,7 @@ pub mod resources;
 
 generate!({
     world: "skyforge-api",
-    path: "../../spec/wit",
+    path: "wit",
 });
 
 use exports::cloudflavor::skyforge::plugin_api::{Config as PluginConfig, Error, Guest};
