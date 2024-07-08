@@ -13,7 +13,7 @@ struct Hetzner;
 
 impl Guest for Hetzner {
     fn deserialize_config(config: String) -> Result<PluginConfig, Error> {
-        return Ok(PluginConfig { name: config });
+        Ok(PluginConfig { name: config })
     }
 }
 
