@@ -1,0 +1,8 @@
+[package]
+name = "skyforge-sdk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wit-bindgen = "0.28.0"
+skyforge-sdk-macros = { path = "../skyforge-sdk-macros" }
