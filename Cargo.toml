@@ -1,3 +1,7 @@
 [workspace]
 resolver = "2"
-members = ["plugins/hetzner"]
+members = [
+    "crates/plugins/hetzner",
+    "crates/sdk/skyforge-sdk",
+    "crates/sdk/skyforge-sdk-macros",
+]
