@@ -13,20 +13,24 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    container:
+      image: ubuntu:22.04
     steps:
-    - uses: actions/checkout@v3
+    - name: Install packages
+      run: |
+        apt-get update && apt-get install -y curl \
+          wget unzip pkg-config libssl-dev cmake build-essential
+    - uses: actions/checkout@v4
     - name: Install latest nightly
-      uses: actions-rs/toolchain@v1
+      uses: dtolnay/rust-toolchain@v1
       with:
         toolchain: nightly
-        override: true
         components: rustfmt, clippy
         target: wasm32-wasip1
     - name: Install cargo-component
       run: cargo install cargo-component
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y build-essential
+      run: apt-get update && apt-get install -y build-essential
     - name: Install wit-bindgen
       run: cargo install wit-bindgen-cli
     - name: Check WIT API
@@ -34,4 +38,4 @@ jobs:
     - name: Run clippy
       run: cargo clippy
     - name: Build plugins
-      run: cargo component build
+      run: cargo component build -r
