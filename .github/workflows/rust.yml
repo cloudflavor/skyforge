@@ -11,7 +11,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     container:
       image: ubuntu:22.04
@@ -29,8 +28,6 @@ jobs:
         target: wasm32-wasip1
     - name: Install cargo-component
       run: cargo install cargo-component
-    - name: Install dependencies
-      run: apt-get update && apt-get install -y build-essential
     - name: Install wit-bindgen
       run: cargo install wit-bindgen-cli
     - name: Check WIT API
