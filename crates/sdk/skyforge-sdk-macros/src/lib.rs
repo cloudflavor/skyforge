@@ -16,15 +16,17 @@ pub fn skyforge_plugin(_: TokenStream, input: TokenStream) -> TokenStream {
     let trait_items = &impl_trait.items;
 
     let expanded = quote! {
+        use exports::cloudflavor::skyforge::plugin_api::{Guest, Config,Error};
 
         wit_bindgen::generate!({path: "wit", world: "skyforge-api"});
 
-        use exports::cloudflavor::skyforge::plugin_api::{Guest, Config,Error};
-
         impl Guest for #name {
-            fn deserialize_config(config: String) -> Result<Config, Error> {
-                let config = Self::deserialize_config_impl(config).unwrap();
-                Ok(config)
+            fn get_version() -> String {
+                Self::get_version_impl()
+            }
+
+            fn verify_config(config: Config) -> Result<(), Error> {
+                Self::verify_config_impl(config)
             }
         }
 

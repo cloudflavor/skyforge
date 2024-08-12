@@ -11,7 +11,8 @@ interface plugin-api {
         other,
     }
 
-    deserialize-config: func(config-str: string) -> result<config, error>;
+    verify-config: func(config: config) -> result<error>;
+    get-version: func() -> string;
 }
 
 world skyforge-api {
