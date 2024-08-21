@@ -39,3 +39,4 @@ pub fn skyforge_plugin(_: TokenStream, input: TokenStream) -> TokenStream {
 
     TokenStream::from(expanded)
 }
+
