@@ -40,6 +40,7 @@ use std::collections::HashMap;
 ///     },
 /// )
 /// ```
+///
 pub fn network(
     _name: &str,
     _expose_routes_to_vswitch: bool,
