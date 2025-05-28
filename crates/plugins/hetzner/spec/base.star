@@ -17,7 +17,7 @@ module(
     name = "hetzner",
     version = "v0.1.0",
     # capabilities represents a set of capabilities that the plugin gains all
-    # capabilities in starlark map to the capabilities of WASI and are describer here
+    # capabilities in starlark map to the capabilities of WASI and are described here
     # https://docs.rs/wasmtime-wasi/latest/wasmtime_wasi/struct.WasiCtxBuilder.html#
     capabilities = capabilities(
         inherits = [
